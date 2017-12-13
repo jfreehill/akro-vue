@@ -1,0 +1,306 @@
+// @import "fontello";
+@import url('https://fonts.googleapis.com/css?family=Asap:400,700');
+@import 'fontello';
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+html {
+  font-size: 5vh;
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+}
+/* Space out content a bit */
+body {
+  background-color: #2b2828;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  /* Make the masthead heading the same height as the navigation */
+}
+
+h1,
+h2 {
+  color: #fff;
+  margin-top: 0;
+  font-family: 'Asap';
+}
+
+h1 {
+  color: lighten(#7aca44, 10%);
+  font-family: 'Asap';
+  font-weight: bold;
+  text-align: center;
+  width: 80%;
+  font-size: 30px;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+
+  .letter-2 {
+    color: #e78124;
+  }
+  .letter-3 {
+    color: lighten(#4796b7, 10%);
+  }
+  .letter-4 {
+    color: #f7f230;
+  }
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #d2babb;
+  text-align: left;
+  padding-left: .5rem;
+  margin-bottom: .5rem;
+}
+
+p {
+  color: #fff;
+  font-family: 'Asap';
+  font-size: 16px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 0;
+  font-family: 'Asap';
+  font-weight: 700;
+  text-align: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 2.5rem;
+  position: relative;
+  height: 2rem;
+}
+
+.help {
+  background-color: #191717;
+  color: #e63d4a;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  font-size: 30px;
+  transition: color 0.3s;
+
+  &.open {
+    color: #b21f30;
+    transition: color 0.3s;
+  }
+  &:before {
+    font-size: 24px;
+  }
+}
+
+.how-to-play {
+  background-color: #433c3d;
+  padding: .5rem 1rem;
+  border-top: 1px solid #191717;
+  border-bottom: 1px solid #191717;
+  margin-bottom: 0.5rem;
+  position: absolute;
+  top: 100%;
+  // transform: translateX(110%);
+  transition: all 0.3s;
+  box-shadow: 0px 10px 15px 5px rgba(0,0,0,.2);
+
+  h2 {
+    padding-left: 0;
+  }
+
+  &.show {
+    top: 100%;
+    transform: translateX(0);
+  }
+}
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-top: 1px solid #191717;
+  border-bottom: 1px solid #191717;
+}
+
+.display-text {
+  background-color: #433c3d;
+  border: none;
+  color: #fff;
+  display: block;
+  float: left;
+  font-family: 'Asap';
+  font-size: 22px;
+  font-weight: bold;
+  height: 2rem;
+  text-align: center;
+  width: 80%;
+  box-shadow: inset 0px 0 0px 0px #ffffff;
+  transition: box-shadow 0.25s;
+
+  &:focus {
+    outline: 0;
+    box-shadow: inset 0px 0 0px 5px #ffffff;
+  }
+}
+
+.display-refresh {
+  background-color: #4797b7;
+  box-shadow: inset 5px 0 10px rgba(0,0,0,.1);
+  color: #fff;
+  display: block;
+  font-size: 24px;
+  height: 2rem;
+  transition: background-color 0.35s;
+  width: 20%;
+
+  &:active {
+    background-color: #4bb4d4;
+    transition: background-color 0s;
+  }
+  &:before {
+    font-size: 20px;
+  }
+}
+
+@mixin lightenActive($bg) {
+  &:active {
+    background-color: lighten($bg, 20%);
+  }
+}
+
+.display-button-bar {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  width: 100%;
+
+  button {
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    box-shadow: inset 5px 0 10px rgba(0,0,0,.1);
+    transition: background-color 0.35s;
+
+    &:first-child {
+      background-color: #f6f230;
+      @include lightenActive(#f6f230);
+    }
+    &:nth-child(2) {
+      background-color: #f2d02c;
+      @include lightenActive(#f2d02c);
+    }
+    &:nth-child(3) {
+      background-color: #eda829;
+      @include lightenActive(#eda829);
+    }
+    &:nth-child(4) {
+      background-color: #e78124;
+      @include lightenActive(#e78124);
+    }
+    &:last-child {
+      background-color: #e56621;
+      @include lightenActive(#e56621);
+    }
+    &[disabled] {
+      background-color: #ccc;
+
+      &:active {
+        background-color: #fd686d;
+      }
+    }
+    &:active {
+      transition: background-color 0s;
+    }
+  }
+}
+
+.letters {
+  margin-bottom: 80px;
+
+  .display-text {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.new-round {
+  background-color: #7bc944;
+  color: #222;
+  font-size: 20px;
+  height: 4rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.5s;
+
+  &:active {
+    background-color: #a1f43c;
+    transition: background-color 0s;
+  }
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+ [class^="icon-"], [class*=" icon-"] {
+   font-size: 0!important;
+ }
