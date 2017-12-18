@@ -20,13 +20,7 @@
     <div class="display letters">
       <input type="text" class="display-text" v-model="letters" @input="letterCount = letters.length" maxlength="8">
       <button type="button" class="display-refresh icon-arrows-cw" @click="newLetters()">New Letters</button>
-      <div class="display-button-bar">
-        <button type="button" class="icon-minus" @click="letterCount--" :disabled="letterCount < 2">-</button>
-        <button type="button" @click="letterCount = 3">3</button>
-        <button type="button" @click="letterCount = 4">4</button>
-        <button type="button" @click="letterCount = 5">5</button>
-        <button type="button" class="icon-plus" @click="letterCount = letterCount+1" :disabled="letterCount > 7">+</button>
-      </div>
+      <count-control :counter="letterCount" @update:count="letterCountUpdate"></count-control>
     </div>
     <button class="new-round" type="button" @click="newRound()">New Round!</button>
   </div>
@@ -35,6 +29,7 @@
 <script>
 import { getCategory } from '@/services/categories'
 import * as LetterService from '@/services/letters'
+import CountControl from '@/components/CountControl'
 
 export default {
   name: 'Home',
@@ -46,17 +41,16 @@ export default {
       showHelp: false
     }
   },
+  components: {
+    CountControl
+  },
   methods: {
     newLetters,
     newCategory,
-    newRound
+    newRound,
+    letterCountUpdate
   },
-  mounted: newRound,
-  watch: {
-    letterCount: {
-      handler: letterCountUpdate
-    }
-  }
+  mounted: newRound
 }
 
 function newLetters () {
